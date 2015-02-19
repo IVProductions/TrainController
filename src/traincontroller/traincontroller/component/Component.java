@@ -23,6 +23,7 @@ import no.ntnu.item.arctis.runtime.Block;
 public class Component extends Block {
 
 	public void openGUI() {
+		final String train_id = "train_2";
 		JFrame frame = new JFrame("Controller");
 		frame.setLayout(new GridLayout(5, 1));
 
@@ -73,17 +74,17 @@ public class Component extends Block {
 		//SET SPEED
 		setSpeedAngleButton.addActionListener(new ActionListener(){ //send message to train
 		      public void actionPerformed(ActionEvent e){
-		    	  sendToBlock("SENDCOMMAND", "controller;train_1;setangle;"+angleValue.getText());
+		    	  sendToBlock("SENDCOMMAND", "controller;"+train_id+";setangle;"+angleValue.getText());
 		      }
 		  });
 		setDestinationButton.addActionListener(new ActionListener(){ //send destination to train
 		      public void actionPerformed(ActionEvent e){
-		    	  sendToBlock("SENDCOMMAND", "controller;train_1;destination;"+destinationValue.getText());
+		    	  sendToBlock("SENDCOMMAND", "controller;"+train_id+";destination;"+destinationValue.getText());
 		      }
 		  });
 		  terminate.addActionListener(new ActionListener(){
 		      public void actionPerformed(ActionEvent e){
-		    	  sendToBlock("SENDCOMMAND", "controller;train_1;terminate");
+		    	  sendToBlock("SENDCOMMAND", "controller;"+train_id+";terminate");
 		      }
 		  });
 
